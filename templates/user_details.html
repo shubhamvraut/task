@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+  <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+</head>
+<body>
+  <div class="container">
+    <div class="row pt-4 pb-4 bg-info" >
+      <div class="col-md-4">
+        <p><h6>Username :  </h6>{{user_detail.username}}</p>
+      </div>
+      <div class="col-md-4">
+         <p><h6>Secret Code :  </h6>{{user_detail.secret_code}}</p>
+      </div>
+      <div class="col-md-2">
+        <h6>Profile Image : </h6>
+          <img src=\media\{{user_detail.profile_pic}} class="rounded  d-block"  style="width:50px;height:50px">
+      </div>
+      {% if user_detail.qr_code == "" %}
+      {% else %}
+        <div class="col-md-2">
+          <h6>QR Code : </h6>
+          <img src=\media\{{user_detail.qr_code}} class="rounded  d-block"  style="width:50px;height:50px">
+        </div>
+      {% endif %}
+    </div>
+    <div class="row pt-4 pb-4">
+      <div class="col">
+         <h6>Mobile Number :</h6>{{user_detail.mobile_no}}
+      </div>
+      <div class="col">
+         <h6>Address:</h6>{{user_detail.address}}
+      </div>
+      <div class="col">
+       <h6>City:</h6>{{user_detail.city}}
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col">
+        <a href="/user/update/{{user_detail.id}}">
+          <button type="button" class="btn btn-sm btn-success" >
+          <i class="fas fa-plus"></i>Update User
+         </button>
+        </a>
+      </div>
+      {% if user_detail.qr_code %}
+      {% else %}
+        <div class="col">
+          <a href="/user/generate-qrcode/{{user_detail.id}}">
+            <button type="button" class="btn btn-sm btn-success">
+            <i class="fas fa-plus"></i>GENERATE QR CODE
+            </button>
+          </a>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</body>
+</html>
