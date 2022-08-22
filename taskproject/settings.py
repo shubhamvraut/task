@@ -178,8 +178,8 @@ SOCIALACCOUNT_PROVIDERS = {
          'VERSION': 'v7.0',
          # you should fill in 'APP' only if you don't create a Facebook instance at /admin/socialaccount/socialapp/
          'APP': {
-             'client_id': '741724503609197',  # !!! THIS App ID
-             'secret': 'b5cca0832ba5a4c019a2b79eb9f8afbf',  # !!! THIS App Secret
+             'client_id': '####',  # !!! THIS App ID
+             'secret': '####',  # !!! THIS App Secret
              'key': ''
                 }
          }
